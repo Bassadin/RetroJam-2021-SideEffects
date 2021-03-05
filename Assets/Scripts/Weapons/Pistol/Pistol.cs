@@ -5,7 +5,9 @@ using UnityEngine;
 public class Pistol : MonoBehaviour {
     public int maxAmmo = 12;
     public float thrust = 100f;
+    public float reloadTime = 2f;
 
+    private bool reloading = false;
     private int currentAmmo = 12;
     private bool shotFired = false;
 
@@ -14,16 +16,37 @@ public class Pistol : MonoBehaviour {
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            ShootProjectile();
+            if(currentAmmo > 0 && !reloading)
+                ShootProjectile();
+            else {
+                //display reload tip
+            }
+        }
+        else if(Input.GetKeyDown(KeyCode.R)) {
+            if (!reloading)
+                StartCoroutine(StartReload());
+            else
+                Debug.Log("ALREADY RELOADING");
         }
     }
     void ShootProjectile () {
+        currentAmmo--;
         Vector3 weaponPosition = gameObject.transform.position;
         GameObject projectile = Instantiate(pistolProjectilePrefab, weaponPosition, Quaternion.identity);
         projectile.transform.forward = firstPersonCamera.transform.forward;
         IProjectile projectileBehaviour = projectile.GetComponent<PistolProjectile>();
-        Debug.Log(projectileBehaviour);
-        projectileBehaviour.Shoot(thrust);
 
+        projectileBehaviour.Shoot(thrust);
+    }
+
+    IEnumerator StartReload() {
+        reloading = true;
+        yield return new WaitForSeconds(reloadTime);
+        Reload();
+    }
+
+    void Reload() {
+        currentAmmo = maxAmmo;
+        reloading = false;
     }
 }
