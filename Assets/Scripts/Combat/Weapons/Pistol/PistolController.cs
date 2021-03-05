@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : MonoBehaviour {
+public class PistolController : MonoBehaviour {
     public int maxAmmo = 12;
     public float thrust = 100f;
     public float reloadTime = 2f;

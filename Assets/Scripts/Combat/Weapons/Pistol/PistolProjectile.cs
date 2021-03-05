@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PistolProjectile : MonoBehaviour, IProjectile
 {
+    public float damage = 5;
     [SerializeField] private Rigidbody rigidBody;
     public void DealDamage() {
         
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        ITakesDamage takeDamageBehaviour = other.gameObject.GetComponent<ITakesDamage>();
+        takeDamageBehaviour?.TakeDamage(damage);
+        Destroy(gameObject);
     }
 
     public void Awake() {
@@ -14,7 +21,6 @@ public class PistolProjectile : MonoBehaviour, IProjectile
     }
 
     public void Shoot(float weaponThrust) {
-        Debug.Log(gameObject.transform.forward + " ///" + weaponThrust);
         rigidBody.AddForce(gameObject.transform.forward * weaponThrust);
     }
 
