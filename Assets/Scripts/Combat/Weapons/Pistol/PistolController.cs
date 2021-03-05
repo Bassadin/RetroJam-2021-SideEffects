@@ -31,8 +31,8 @@ public class PistolController : MonoBehaviour {
     }
     void ShootProjectile () {
         currentAmmo--;
-        Vector3 weaponPosition = gameObject.transform.position;
-        GameObject projectile = Instantiate(pistolProjectilePrefab, weaponPosition, Quaternion.identity);
+        Vector3 projectileSpawnPosition = GameObject.Find("ProjectileSpawnPosition").transform.position;
+        GameObject projectile = Instantiate(pistolProjectilePrefab, projectileSpawnPosition, Quaternion.identity);
         projectile.transform.forward = firstPersonCamera.transform.forward;
         IProjectile projectileBehaviour = projectile.GetComponent<PistolProjectile>();
 
