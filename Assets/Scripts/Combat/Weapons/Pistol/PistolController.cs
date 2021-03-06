@@ -13,6 +13,8 @@ public class PistolController : MonoBehaviour {
     [SerializeField] private GameObject pistolProjectilePrefab;
     [SerializeField] private Camera firstPersonCamera;
 
+    public Transform projectileSpawnPosition;
+
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             if(currentAmmo > 0 && !reloading)
@@ -30,8 +32,7 @@ public class PistolController : MonoBehaviour {
     }
     void ShootProjectile () {
         currentAmmo--;
-        Vector3 projectileSpawnPosition = GameObject.Find("ProjectileSpawnPosition").transform.position;
-        GameObject projectile = Instantiate(pistolProjectilePrefab, projectileSpawnPosition, Quaternion.identity);
+        GameObject projectile = Instantiate(pistolProjectilePrefab, projectileSpawnPosition.position, Quaternion.identity);
         projectile.transform.forward = firstPersonCamera.transform.forward;
         IProjectile projectileBehaviour = projectile.GetComponent<PistolProjectile>();
 

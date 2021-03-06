@@ -81,6 +81,7 @@ MonoBehaviour:
   reloadTime: 2
   pistolProjectilePrefab: {fileID: 1056867457765174826, guid: 9b34ec7d67136f44c98f6e5d48ca7d46, type: 3}
   firstPersonCamera: {fileID: 0}
+  projectileSpawnPosition: {fileID: 5567226642535315447}
 --- !u!23 &1366582486917634057
 MeshRenderer:
   m_ObjectHideFlags: 0
