@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 8578520764109605878}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 5567226642535315447}
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmo: 12
-  thrust: 500
+  thrust: 3500
   reloadTime: 2
   pistolProjectilePrefab: {fileID: 1056867457765174826, guid: 9b34ec7d67136f44c98f6e5d48ca7d46, type: 3}
   firstPersonCamera: {fileID: 0}
