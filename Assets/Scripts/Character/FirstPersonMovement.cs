@@ -14,6 +14,8 @@ public class FirstPersonMovement : MonoBehaviour
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
 
+    public CameraWalkBobbing cameraBobbingReference;
+
 
     void FixedUpdate()
     {
@@ -24,6 +26,9 @@ public class FirstPersonMovement : MonoBehaviour
             movingSpeed = speedOverrides[speedOverrides.Count - 1]();
         velocity.y = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
         velocity.x = Input.GetAxis("Horizontal") * movingSpeed * Time.deltaTime;
+
+        cameraBobbingReference.SetWalking(velocity.magnitude >= 0.01f);
+
         transform.Translate(velocity.x, 0, velocity.y);
     }
 }
