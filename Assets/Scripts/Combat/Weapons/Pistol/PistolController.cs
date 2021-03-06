@@ -9,7 +9,6 @@ public class PistolController : MonoBehaviour {
 
     private bool reloading = false;
     private int currentAmmo = 12;
-    private bool shotFired = false;
 
     [SerializeField] private GameObject pistolProjectilePrefab;
     [SerializeField] private Camera firstPersonCamera;
