@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : CharacterController, ILockOnAble {
     override public void Start() {
         base.Start();
+        SceneController.AddLockonableTarget(this);
     }
 
     void Update() {
@@ -12,5 +13,9 @@ public class EnemyController : CharacterController, ILockOnAble {
     }
     public Vector3 GetMiddle() {
         return transform.position;
+    }
+
+    private void OnDestroy() {
+        SceneController.RemoveLockonableTarget(this);
     }
 }
