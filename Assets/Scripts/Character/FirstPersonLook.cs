@@ -43,7 +43,7 @@ public class FirstPersonLook : MonoBehaviour
 
     private void CheckTargetsInFOV() {
         List<ILockOnAble> tempTargets = new List<ILockOnAble>();
-        foreach (ILockOnAble lockonableTarget in SceneController.lockonableTargets) {
+        foreach (ILockOnAble lockonableTarget in SceneController.getLockonableTargets()) {
             Vector3 screenPoint = fpsCamera.WorldToViewportPoint(lockonableTarget.GetMiddle());
             bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
             if (onScreen)
