@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 1864965022}
   m_Layer: 7
   m_Name: First person controller full
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -859,6 +859,7 @@ MonoBehaviour:
   character: {fileID: 4207293392497186}
   sensitivity: 1
   smoothing: 2
+  fpsCamera: {fileID: 0}
 --- !u!114 &612920248
 MonoBehaviour:
   m_ObjectHideFlags: 0
