@@ -14,7 +14,7 @@ public class FirstPersonLook : MonoBehaviour
     private List<ILockOnAble> lockonAbleTargetsInFOVLeft = new List<ILockOnAble>();
     private List<ILockOnAble> lockonAbleTargetsInFOVRight = new List<ILockOnAble>();
     private bool lockedOn = false;
-    private ILockOnAble lockTarget;
+    private ILockOnAble currentlyLockedOnTarget;
 
     void Reset()
     {
@@ -25,7 +25,7 @@ public class FirstPersonLook : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-
+    
     void Update()
     {
         if(!Input.GetMouseButton(1) && (Mathf.Abs(Input.GetAxisRaw("Mouse X")) > 0 || Mathf.Abs(Input.GetAxisRaw("Mouse Y")) > 0)) {
@@ -44,9 +44,9 @@ public class FirstPersonLook : MonoBehaviour
                 CheckTargetsInFOV();
                 try {
                     if (Input.GetAxisRaw("Mouse X") < 0)
-                        lockTarget = lockonAbleTargetsInFOVLeft[0];
+                        currentlyLockedOnTarget = lockonAbleTargetsInFOVLeft[0];
                     else if (Input.GetAxisRaw("Mouse X") > 0)
-                        lockTarget = lockonAbleTargetsInFOVRight[0];
+                        currentlyLockedOnTarget = lockonAbleTargetsInFOVRight[0];
                     SetCameraCenterOnLockTargetCenter();
                 } catch(Exception arrayOutOfBounds) {
                     //tried to get a target on either side, when there was none in the fov in that direction
@@ -101,7 +101,23 @@ public class FirstPersonLook : MonoBehaviour
     }
 
     private void SetCameraCenterOnLockTargetCenter() {
-        Debug.Log(lockTarget.GetScreenPoint());
-        Debug.Log(lockTarget.GetMiddle());
+        Vector3 directionTowardsTarget = currentlyLockedOnTarget.GetMiddle() - transform.position;
+        Vector3 projectedOntoYZ = Vector3.ProjectOnPlane(directionTowardsTarget, transform.right);
+       
+        float xRotation = Vector3.SignedAngle(transform.forward, projectedOntoYZ, Vector3.right);
+        Debug.Log(xRotation);
+        transform.Rotate(new Vector3(xRotation, 0, 0));
+
+        Vector3 projectedOntoXZ = Vector3.ProjectOnPlane(directionTowardsTarget, transform.up);
+
+        float yRotation = Vector3.SignedAngle(transform.forward, projectedOntoXZ, Vector3.up);
+        character.Rotate(new Vector3(0, yRotation, 0));
+
+
+        //transform.LookAt(currentlyLockedOnTarget.GetMiddle());
+    }
+
+    void OnDrawGizmosSelected() {
+        
     }
 }
