@@ -12,6 +12,7 @@ public class FirstPersonLook : MonoBehaviour
     private float xRotation = 0f;
     private List<ILockOnAble> lockonAbleTargetsInFOVLeft = new List<ILockOnAble>();
     private List<ILockOnAble> lockonAbleTargetsInFOVRight = new List<ILockOnAble>();
+    private bool targetMode = false;
     private ILockOnAble currentlyLockedOnTarget;
 
     void Reset()
@@ -26,39 +27,45 @@ public class FirstPersonLook : MonoBehaviour
     
     void Update()
     {
-        if (!Input.GetMouseButton(1)) {
-            currentlyLockedOnTarget = null;
-            float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            character.Rotate(Vector3.up * mouseX);
+        if(Input.GetMouseButton(1)) {
+            if(Input.GetMouseButtonUp(1)) {
+                currentlyLockedOnTarget = null;
+            }
+            UseTargetMode();
         }
         else {
-
-            if (Mathf.Abs(Input.GetAxisRaw("Mouse X")) > 0) {
-                CheckTargetsInFOV();
-                try {
-                    if (Input.GetAxisRaw("Mouse X") < 0) {
-                        currentlyLockedOnTarget = lockonAbleTargetsInFOVLeft[0];
-                    }
-                    else if (Input.GetAxisRaw("Mouse X") > 0) {
-                        currentlyLockedOnTarget = lockonAbleTargetsInFOVRight[0];
-                    }
-                    SetCameraCenterOnLockTargetCenter();
-                } catch(Exception arrayOutOfBounds) {
-                    //tried to get a target on either side, when there was none in the fov in that direction
-                    //Debug.Log(arrayOutOfBounds);
-                }
-            }
+            UseNormalMode();
         }
     }
 
-    private void FixedUpdate() {
+    private void UseNormalMode() {
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        character.Rotate(Vector3.up * mouseX);
+    }
+
+    private void UseTargetMode() {
+        if (currentlyLockedOnTarget != null) {
+            SetCameraCenterOnLockTargetCenter();
+        }
+        try {
+            if (Input.GetKeyDown(KeyCode.Q)) {
+                CheckTargetsInFOV();
+                currentlyLockedOnTarget = lockonAbleTargetsInFOVLeft[0];
+            }
+            else if (Input.GetKeyDown(KeyCode.E)) {
+                CheckTargetsInFOV();
+                currentlyLockedOnTarget = lockonAbleTargetsInFOVRight[0];
+            }
+        } catch (Exception arrayOutOfBounds) {
+            //tried to get a target on either side, when there was none in the fov in that direction
+            //Debug.Log(arrayOutOfBounds);
+        }
     }
 
     private void CheckTargetsInFOV() {
