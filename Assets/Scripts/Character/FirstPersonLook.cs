@@ -6,14 +6,12 @@ public class FirstPersonLook : MonoBehaviour
 {
     [SerializeField]
     Transform character;
-    Vector2 currentMouseLook;
-    Vector2 appliedMouseDelta;
-    public float sensitivity = 1;
+    public float sensitivity = 500;
     public float smoothing = 2;
     [SerializeField] private Camera fpsCamera;
+    private float xRotation = 0f;
     private List<ILockOnAble> lockonAbleTargetsInFOVLeft = new List<ILockOnAble>();
     private List<ILockOnAble> lockonAbleTargetsInFOVRight = new List<ILockOnAble>();
-    private bool lockedOn = false;
     private ILockOnAble currentlyLockedOnTarget;
 
     void Reset()
@@ -28,28 +26,32 @@ public class FirstPersonLook : MonoBehaviour
     
     void Update()
     {
-        if(!Input.GetMouseButton(1) && (Mathf.Abs(Input.GetAxisRaw("Mouse X")) > 0 || Mathf.Abs(Input.GetAxisRaw("Mouse Y")) > 0)) {
-            // Get smooth mouse look.
-            Vector2 smoothMouseDelta = Vector2.Scale(new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")), Vector2.one * sensitivity * smoothing);
-            appliedMouseDelta = Vector2.Lerp(appliedMouseDelta, smoothMouseDelta, 1 / smoothing);
-            currentMouseLook += appliedMouseDelta;
-            currentMouseLook.y = Mathf.Clamp(currentMouseLook.y, -90, 90);
+        if (!Input.GetMouseButton(1)) {
+            currentlyLockedOnTarget = null;
+            float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
-            // Rotate camera and controller.
-            transform.localRotation = Quaternion.AngleAxis(-currentMouseLook.y, Vector3.right);
-            character.localRotation = Quaternion.AngleAxis(currentMouseLook.x, Vector3.up);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            character.Rotate(Vector3.up * mouseX);
         }
         else {
+
             if (Mathf.Abs(Input.GetAxisRaw("Mouse X")) > 0) {
                 CheckTargetsInFOV();
                 try {
-                    if (Input.GetAxisRaw("Mouse X") < 0)
+                    if (Input.GetAxisRaw("Mouse X") < 0) {
                         currentlyLockedOnTarget = lockonAbleTargetsInFOVLeft[0];
-                    else if (Input.GetAxisRaw("Mouse X") > 0)
+                    }
+                    else if (Input.GetAxisRaw("Mouse X") > 0) {
                         currentlyLockedOnTarget = lockonAbleTargetsInFOVRight[0];
+                    }
                     SetCameraCenterOnLockTargetCenter();
                 } catch(Exception arrayOutOfBounds) {
                     //tried to get a target on either side, when there was none in the fov in that direction
+                    //Debug.Log(arrayOutOfBounds);
                 }
             }
         }
@@ -67,7 +69,7 @@ public class FirstPersonLook : MonoBehaviour
             //we get the world positions and form them to the viewport location ( 0,0 is bottom left of camera viewport and 1,1 top right, so everything with an x less than 0.5 is left of center)
             Vector3 screenPoint = fpsCamera.WorldToViewportPoint(lockonableTarget.GetMiddle());
             bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
-            if (onScreen) {
+            if (onScreen && currentlyLockedOnTarget != lockonableTarget) {
                 if(screenPoint.x <= 0.5)
                     tempTargetsLeft.Add(lockonableTarget);
                 else
@@ -101,19 +103,23 @@ public class FirstPersonLook : MonoBehaviour
     }
 
     private void SetCameraCenterOnLockTargetCenter() {
-        Vector3 directionTowardsTarget = currentlyLockedOnTarget.GetMiddle() - transform.position;
-        Vector3 projectedOntoYZ = Vector3.ProjectOnPlane(directionTowardsTarget, transform.right);
-       
-        float xRotation = Vector3.SignedAngle(transform.forward, projectedOntoYZ, Vector3.right);
+        Vector3 directionTowardsTargetFromCamera = currentlyLockedOnTarget.GetMiddle() - transform.position;
+        Vector3 directionTowardsTargetFromCharacter = currentlyLockedOnTarget.GetMiddle() - character.position;
+
+        
+        Vector3 XZPlaneProjection = Vector3.ProjectOnPlane(directionTowardsTargetFromCharacter, character.up);
+        float yRotation = Vector3.SignedAngle(character.forward, XZPlaneProjection, character.up);
+        character.Rotate(new Vector3(0, yRotation, 0));
+
+        Vector3 YZPlaneProjection = Vector3.ProjectOnPlane(directionTowardsTargetFromCamera, transform.right);
+        float xRotation = Vector3.SignedAngle(transform.forward, YZPlaneProjection, transform.right);
         Debug.Log(xRotation);
         transform.Rotate(new Vector3(xRotation, 0, 0));
 
-        Vector3 projectedOntoXZ = Vector3.ProjectOnPlane(directionTowardsTarget, transform.up);
 
-        float yRotation = Vector3.SignedAngle(transform.forward, projectedOntoXZ, Vector3.up);
-        character.Rotate(new Vector3(0, yRotation, 0));
+        //character.transform.localRotation = Quaternion.AngleAxis(xRotation, Vector3.up);
 
-
+        currentlyLockedOnTarget.GetGameObject().GetComponent<Renderer>().material.color = Color.red;
         //transform.LookAt(currentlyLockedOnTarget.GetMiddle());
     }
 

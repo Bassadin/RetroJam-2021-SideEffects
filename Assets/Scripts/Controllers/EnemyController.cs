@@ -28,4 +28,8 @@ public class EnemyController : CharacterController, ILockOnAble {
     public Vector3 GetScreenPoint() {
         return screenPoint;
     }
+
+    public GameObject GetGameObject() {
+        return gameObject;
+    }
 }

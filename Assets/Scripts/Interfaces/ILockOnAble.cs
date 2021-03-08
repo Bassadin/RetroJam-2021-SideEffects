@@ -8,4 +8,6 @@ public interface ILockOnAble
 
     void SetScreenPoint(Vector3 _screenPoint);
     Vector3 GetScreenPoint();
+
+    GameObject GetGameObject();
 }
