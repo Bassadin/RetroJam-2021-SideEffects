@@ -18,7 +18,7 @@ public class TurretController : MonoBehaviour
             Vector3 lookPos = lookAtTarget.position - transform.position;
             lookPos.y = 0;
             Quaternion lookAtRotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookAtRotation, Time.deltaTime * 3f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookAtRotation, Time.deltaTime * 5);
         }
     }
 
