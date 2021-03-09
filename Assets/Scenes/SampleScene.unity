@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.24313289, g: 0.37876102, b: 0.06739522, a: 1}
+  m_IndirectSpecularColor: {r: 0.24405158, g: 0.37852293, b: 0.0674842, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &395867967
 PrefabInstance:
@@ -196,6 +196,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1390577593, guid: 8b7bbbd166ee315448cdbe5337338470, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9625771688838158, guid: 8b7bbbd166ee315448cdbe5337338470, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -679,7 +683,7 @@ Transform:
   m_LocalScale: {x: 4.3597264, y: 4.3597264, z: 4.3597264}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -17.882, y: -22.516, z: 7.254}
 --- !u!20 &1849714217 stripped
 Camera:

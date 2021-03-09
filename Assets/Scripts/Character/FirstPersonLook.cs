@@ -4,18 +4,21 @@ using System;
 
 public class FirstPersonLook : MonoBehaviour
 {
-    [SerializeField]
-    Transform character;
-    public float sensitivity = 500;
-    public float smoothing = 2;
+
+    [SerializeField] private Transform character;
     [SerializeField] private Camera fpsCamera;
+    [SerializeField] private FirstPersonMovement firstPersonMovement;
+
     private float xRotation = 0f;
     private List<ILockOnAble> lockonAbleTargetsInFOVLeft = new List<ILockOnAble>();
     private List<ILockOnAble> lockonAbleTargetsInFOVRight = new List<ILockOnAble>();
     private ILockOnAble currentlyLockedOnTarget;
     private bool targetMode = false;
     private bool freeLookMode = false;
-    [SerializeField] private FirstPersonMovement firstPersonMovement;
+
+    public float sensitivity = 500;
+    public float smoothing = 2;
+
 
     void Reset()
     {
@@ -147,7 +150,6 @@ public class FirstPersonLook : MonoBehaviour
     }
 
     private void SetCameraCenterOnLockTargetCenter() {
-        //check this, cause the object might have been destroyed in the meantime
         try {
             GameObject lockedOnTargetObject = currentlyLockedOnTarget.GetGameObject();
 
