@@ -10,8 +10,8 @@ public class PistolProjectile : MonoBehaviour, IProjectile
         
     }
 
-    private void OnTriggerEnter(Collider other) {
-        ITakesDamage takeDamageBehaviour = other.gameObject.GetComponent<ITakesDamage>();
+    private void OnCollisionEnter(Collision collision) {
+        ITakesDamage takeDamageBehaviour = collision.gameObject.GetComponent<ITakesDamage>();
         takeDamageBehaviour?.TakeDamage(damage);
         Destroy(gameObject);
     }

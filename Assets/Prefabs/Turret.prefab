@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53353321c1f61e84daab87b1a1109332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 35
+  currentHealth: 35
   turretAnimator: {fileID: 5881700475583030635}
   towerRotationPartTransform: {fileID: 4465532430389229477}
 --- !u!1001 &5881700476067261735
