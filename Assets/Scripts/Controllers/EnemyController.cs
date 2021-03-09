@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class EnemyController : CharacterController, ILockOnAble {
 
-    private Vector3 screenPoint; 
+    private Vector3 screenPoint;
+
     override public void Start() {
         base.Start();
         SceneController.AddLockonableTarget(this);
     }
 
-    void Update() {
-
-    }
     public Vector3 GetMiddle() {
         return transform.position;
     }
 
     private void OnDestroy() {
+        Debug.Log("Cube Object Destroyed");
         SceneController.RemoveLockonableTarget(this);
     }
 

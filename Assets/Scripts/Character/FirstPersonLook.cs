@@ -12,8 +12,9 @@ public class FirstPersonLook : MonoBehaviour
     private float xRotation = 0f;
     private List<ILockOnAble> lockonAbleTargetsInFOVLeft = new List<ILockOnAble>();
     private List<ILockOnAble> lockonAbleTargetsInFOVRight = new List<ILockOnAble>();
-    private bool targetMode = false;
     private ILockOnAble currentlyLockedOnTarget;
+    private bool targetMode = false;
+    private bool freeLookMode = false;
     [SerializeField] private FirstPersonMovement firstPersonMovement;
 
     void Reset()
@@ -28,22 +29,36 @@ public class FirstPersonLook : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift)) {
+        if(Input.GetKeyDown(KeyCode.LeftShift)) {
+            targetMode = true;
+            freeLookMode = false;
+        }
+        if(Input.GetKeyDown(KeyCode.RightShift)) {
+            freeLookMode = true;
+            targetMode = false;
+        }
+        if(Input.GetKeyUp(KeyCode.LeftShift)) {
+            targetMode = false;
+            currentlyLockedOnTarget = null;
+            SetVerticalRotationToZero();
+        }
+        if(Input.GetKeyUp(KeyCode.RightShift)) {
+            freeLookMode = false;
+            firstPersonMovement.canMove = true;
+            SetVerticalRotationToZero();
+        }
+
+        if (targetMode) {
             UseTargetMode();
             firstPersonMovement.Strafe();
         }
-        else if(Input.GetKey(KeyCode.RightShift)) {
+        else if(freeLookMode) {
             firstPersonMovement.canMove = false;
             RotateHorizontically();
             RotateVertically();
         }
         else {
             RotateHorizontically();
-        }
-        if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift)) {
-            currentlyLockedOnTarget = null;
-            firstPersonMovement.canMove = true;
-            SetVerticalRotationToZero();
         }
     }
 
@@ -72,9 +87,6 @@ public class FirstPersonLook : MonoBehaviour
     }
 
     private void UseTargetMode() {
-        if (currentlyLockedOnTarget != null) {           
-            SetCameraCenterOnLockTargetCenter();
-        }
         try {
             if (Input.GetKeyDown(KeyCode.Q)) {
                 CheckTargetsInFOV();
@@ -87,6 +99,9 @@ public class FirstPersonLook : MonoBehaviour
         } catch (Exception arrayOutOfBounds) {
             //tried to get a target on either side, when there was none in the fov in that direction
             //Debug.Log(arrayOutOfBounds);
+        }
+        if(currentlyLockedOnTarget != null) {
+            SetCameraCenterOnLockTargetCenter();
         }
     }
 
@@ -132,27 +147,25 @@ public class FirstPersonLook : MonoBehaviour
     }
 
     private void SetCameraCenterOnLockTargetCenter() {
-        Vector3 directionTowardsTargetFromCamera = currentlyLockedOnTarget.GetMiddle() - transform.position;
-        Vector3 directionTowardsTargetFromCharacter = currentlyLockedOnTarget.GetMiddle() - character.position;
+        //check this, cause the object might have been destroyed in the meantime
+        try {
+            GameObject lockedOnTargetObject = currentlyLockedOnTarget.GetGameObject();
 
-        
-        Vector3 XZPlaneProjection = Vector3.ProjectOnPlane(directionTowardsTargetFromCharacter, character.up);
-        float yRotation = Vector3.SignedAngle(character.forward, XZPlaneProjection, character.up);
-        character.Rotate(new Vector3(0, yRotation, 0));
+            Vector3 directionTowardsTargetFromCamera = lockedOnTargetObject.transform.position - transform.position;
+            Vector3 directionTowardsTargetFromCharacter = lockedOnTargetObject.transform.position - character.position;
 
-        Vector3 YZPlaneProjection = Vector3.ProjectOnPlane(directionTowardsTargetFromCamera, transform.right);
-        float xRotation = Vector3.SignedAngle(transform.forward, YZPlaneProjection, transform.right);
-        Debug.Log(xRotation);
-        transform.Rotate(new Vector3(xRotation, 0, 0));
+            Vector3 XZPlaneProjection = Vector3.ProjectOnPlane(directionTowardsTargetFromCharacter, character.up);
+            float yRotation = Vector3.SignedAngle(character.forward, XZPlaneProjection, character.up);
+            character.Rotate(new Vector3(0, yRotation, 0));
 
+            Vector3 YZPlaneProjection = Vector3.ProjectOnPlane(directionTowardsTargetFromCamera, transform.right);
+            float xRotation = Vector3.SignedAngle(transform.forward, YZPlaneProjection, transform.right);
+            Debug.Log(xRotation);
+            transform.Rotate(new Vector3(xRotation, 0, 0));
 
-        //character.transform.localRotation = Quaternion.AngleAxis(xRotation, Vector3.up);
+            lockedOnTargetObject.GetComponent<Renderer>().material.color = Color.red;
+        } catch(Exception targetWasDestroyedInMeantime) {
 
-        currentlyLockedOnTarget.GetGameObject().GetComponent<Renderer>().material.color = Color.red;
-        //transform.LookAt(currentlyLockedOnTarget.GetMiddle());
-    }
-
-    void OnDrawGizmosSelected() {
-        
+        }
     }
 }
