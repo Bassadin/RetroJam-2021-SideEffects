@@ -29,11 +29,11 @@ public class FirstPersonLook : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift)) {
+        if(Input.GetKeyDown(KeyCode.LeftShift) && !freeLookMode) {
             targetMode = true;
             freeLookMode = false;
         }
-        if(Input.GetKeyDown(KeyCode.RightShift)) {
+        if(Input.GetKeyDown(KeyCode.RightShift) && !targetMode) {
             freeLookMode = true;
             targetMode = false;
         }
