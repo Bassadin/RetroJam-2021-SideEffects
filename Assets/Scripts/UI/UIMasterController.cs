@@ -25,6 +25,7 @@ public class UIMasterController : MonoBehaviour
 
     public void setAmmunitionAmount(int currentAmmo, int maxAmmo)
     {
+        ammunitionText.color = currentAmmo == 0 ? Color.red : Color.white;
         ammunitionText.text = $"Ammo: {currentAmmo}/{maxAmmo}";
     }
 }
