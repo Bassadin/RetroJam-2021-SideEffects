@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 9625771688838158}
   - component: {fileID: 677976186512473475}
   - component: {fileID: 1390577593}
+  - component: {fileID: 7907641103636071328}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -77,8 +78,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53353321c1f61e84daab87b1a1109332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
   turretAnimator: {fileID: 5881700475583030635}
   towerRotationPartTransform: {fileID: 4465532430389229477}
+--- !u!136 &7907641103636071328
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924431544237842158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7047348
+  m_Height: 2.744396
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.1991955, z: 0}
 --- !u!1001 &5881700476067261735
 PrefabInstance:
   m_ObjectHideFlags: 0
