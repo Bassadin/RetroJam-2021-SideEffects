@@ -8,6 +8,7 @@ public class FirstPersonMovement : MonoBehaviour
 
     [Header("Running")]
     public bool canRun = true;
+    public bool canMove = true;
     public bool IsRunning { get; private set; }
     public float runSpeed = 9;
     public KeyCode runningKey = KeyCode.LeftShift;
@@ -19,16 +20,29 @@ public class FirstPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Move.
-        IsRunning = canRun && Input.GetKey(runningKey);
-        float movingSpeed = IsRunning ? runSpeed : speed;
-        if (speedOverrides.Count > 0)
-            movingSpeed = speedOverrides[speedOverrides.Count - 1]();
-        velocity.y = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
-        velocity.x = Input.GetAxis("Horizontal") * movingSpeed * Time.deltaTime;
+        if(canMove) {
+            // Move.
+            IsRunning = canRun && Input.GetKey(runningKey);
+            float movingSpeed = IsRunning ? runSpeed : speed;
+            if (speedOverrides.Count > 0)
+                movingSpeed = speedOverrides[speedOverrides.Count - 1]();
+            velocity.y = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
+            //velocity.x = Input.GetAxis("Horizontal") * movingSpeed * Time.deltaTime;
 
-        cameraBobbingReference.SetWalking(velocity.magnitude >= 0.01f);
+            cameraBobbingReference.SetWalking(velocity.magnitude >= 0.01f);
 
-        transform.Translate(velocity.x, 0, velocity.y);
+            transform.Translate(0, 0, velocity.y);
+        }
+    }
+
+    public void Strafe() {
+        if(canMove) {
+            IsRunning = canRun && Input.GetKey(runningKey);
+            float movingSpeed = IsRunning ? runSpeed : speed;
+            if (speedOverrides.Count > 0)
+                movingSpeed = speedOverrides[speedOverrides.Count - 1]();
+            velocity.x = Input.GetAxis("Horizontal") * movingSpeed * Time.deltaTime;
+            transform.Translate(velocity.x, 0, 0);
+        }
     }
 }

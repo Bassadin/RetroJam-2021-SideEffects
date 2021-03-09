@@ -14,6 +14,7 @@ public class FirstPersonLook : MonoBehaviour
     private List<ILockOnAble> lockonAbleTargetsInFOVRight = new List<ILockOnAble>();
     private bool targetMode = false;
     private ILockOnAble currentlyLockedOnTarget;
+    [SerializeField] private FirstPersonMovement firstPersonMovement;
 
     void Reset()
     {
@@ -27,30 +28,51 @@ public class FirstPersonLook : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetMouseButton(1)) {
-            if(Input.GetMouseButtonUp(1)) {
-                currentlyLockedOnTarget = null;
-            }
+        if (Input.GetKey(KeyCode.LeftShift)) {
             UseTargetMode();
+            firstPersonMovement.Strafe();
+        }
+        else if(Input.GetKey(KeyCode.RightShift)) {
+            firstPersonMovement.canMove = false;
+            RotateHorizontically();
+            RotateVertically();
         }
         else {
-            UseNormalMode();
+            RotateHorizontically();
+        }
+        if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift)) {
+            currentlyLockedOnTarget = null;
+            firstPersonMovement.canMove = true;
+            SetVerticalRotationToZero();
         }
     }
 
-    private void UseNormalMode() {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+    private void RotateHorizontically() {
+        float cameraX = Input.GetAxis("Horizontal") * sensitivity * Time.deltaTime;
+        
+        character.Rotate(Vector3.up * cameraX);
+    }
 
-        xRotation -= mouseY;
+    private void RotateVertically() {
+        float cameraY = Input.GetAxis("Vertical") * sensitivity * Time.deltaTime;
+
+        xRotation -= cameraY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        character.Rotate(Vector3.up * mouseX);
+    }
+
+    private void SetVerticalRotationToZero() {
+        Quaternion currentRotation = transform.localRotation;
+        //set x rotation to 0
+        currentRotation.x = 0;
+        transform.localRotation = currentRotation;
+        //reset variable to 0 for vertical rotation function
+        xRotation = 0;
     }
 
     private void UseTargetMode() {
-        if (currentlyLockedOnTarget != null) {
+        if (currentlyLockedOnTarget != null) {           
             SetCameraCenterOnLockTargetCenter();
         }
         try {
@@ -69,23 +91,23 @@ public class FirstPersonLook : MonoBehaviour
     }
 
     private void CheckTargetsInFOV() {
-        List<ILockOnAble> tempTargetsLeft = new List<ILockOnAble>();
         List<ILockOnAble> tempTargetsRight = new List<ILockOnAble>();
+        List<ILockOnAble> tempTargetsLeft = new List<ILockOnAble>();
         //loop through all LockonableTargets in Scene and set those to the specific List
         foreach (ILockOnAble lockonableTarget in SceneController.getLockonableTargets()) {
             //we get the world positions and form them to the viewport location ( 0,0 is bottom left of camera viewport and 1,1 top right, so everything with an x less than 0.5 is left of center)
             Vector3 screenPoint = fpsCamera.WorldToViewportPoint(lockonableTarget.GetMiddle());
             bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
             if (onScreen && currentlyLockedOnTarget != lockonableTarget) {
-                if(screenPoint.x <= 0.5)
-                    tempTargetsLeft.Add(lockonableTarget);
-                else
+                if(screenPoint.x > 0.5)
                     tempTargetsRight.Add(lockonableTarget);
+                else if(screenPoint.x <= 0.5)
+                    tempTargetsLeft.Add(lockonableTarget);
                 lockonableTarget.SetScreenPoint(screenPoint);
             }
         }
-        tempTargetsLeft.Sort(LeftSort);
         tempTargetsRight.Sort(RightSort);
+        tempTargetsLeft.Sort(LeftSort);
         lockonAbleTargetsInFOVLeft = tempTargetsLeft;
         lockonAbleTargetsInFOVRight = tempTargetsRight;
     }
@@ -97,7 +119,7 @@ public class FirstPersonLook : MonoBehaviour
         else if (c1.GetScreenPoint().x > c2.GetScreenPoint().x) {
             return -1;
         }
-        return 0;
+        return 0; 
     }
     private int RightSort(ILockOnAble c1, ILockOnAble c2) {
         if (c1.GetScreenPoint().x > c2.GetScreenPoint().x) {
