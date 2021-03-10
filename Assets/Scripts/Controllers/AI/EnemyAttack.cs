@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAttack : MonoBehaviour {
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Transform playerTransform;
+    private Transform playerTransform;
     [SerializeField] private LayerMask whatIsPlayer;
 
     public float timeBetweenAttacks;
@@ -15,7 +15,7 @@ public class EnemyAttack : MonoBehaviour {
     private bool playerInAttackRange;
 
     private void Awake() {
-        playerTransform = GameObject.Find("First Person Player").transform;
+        playerTransform = GameObject.Find("FirstPersonPlayer").transform;
         agent = GetComponent<NavMeshAgent>();
     }
     void Update() {

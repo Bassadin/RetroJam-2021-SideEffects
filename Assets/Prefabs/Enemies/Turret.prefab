@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
+  currentWeapon: {fileID: 0}
   turretAnimator: {fileID: 5881700475583030635}
   towerRotationPartTransform: {fileID: 4465532430389229477}
 --- !u!136 &7907641103636071328

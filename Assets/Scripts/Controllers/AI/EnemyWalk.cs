@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyWalk : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    public Transform playerTransform;
+    [SerializeField] private NavMeshAgent agent;
+    private Transform playerTransform;
     [SerializeField] private LayerMask whatIsGround, whatIsPlayer;
 
     public Vector3 walkPoint;
@@ -18,7 +18,7 @@ public class EnemyWalk : MonoBehaviour
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        playerTransform = GameObject.Find("FirstPersonPlayer").transform;
     }
 
     void Update()

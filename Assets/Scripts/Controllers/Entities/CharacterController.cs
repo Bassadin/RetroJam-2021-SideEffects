@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour, ITakesDamage {
+public abstract class CharacterController : MonoBehaviour, ITakesDamage {
     public float maxHealth;
     public float currentHealth;
 
     public WeaponController currentWeapon;
+
     virtual public void Start() {
         currentHealth = maxHealth;
     }
@@ -23,4 +24,6 @@ public class CharacterController : MonoBehaviour, ITakesDamage {
             Destroy(gameObject);
         }
     }
+
+    public abstract void ShootWeapon();
 }

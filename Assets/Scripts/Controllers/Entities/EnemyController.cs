@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : CharacterController, ILockOnAble, ICanAttack {
+public class EnemyController : CharacterController, ILockOnAble {
 
     private Vector3 screenPoint;
 
@@ -16,7 +16,6 @@ public class EnemyController : CharacterController, ILockOnAble, ICanAttack {
     }
 
     private void OnDestroy() {
-        Debug.Log("Cube Object Destroyed");
         SceneController.RemoveLockonableTarget(this);
     }
 
@@ -32,11 +31,8 @@ public class EnemyController : CharacterController, ILockOnAble, ICanAttack {
         return gameObject;
     }
 
-    public void AttackWithWeapon() {
-        currentWeapon?.ShootProjectile();
+    public override void ShootWeapon() {
+        
     }
 
-    public IEnumerator StartReload() {
-        return currentWeapon?.StartReload();
-    }
 }

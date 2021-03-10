@@ -2,28 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : CharacterController, ICanAttack {
+public class PlayerController : CharacterController {
+
+    [SerializeField] private Camera firstPersonCamera;
+    private bool reloading = false;
 
     void Start()
     {
-        
+        updateAmmoInUIController();
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-            AttackWithWeapon();
+            ShootWeapon();
         }
         else if (Input.GetKeyDown(KeyCode.R)) {
             StartCoroutine("StartReload");
         }
     }
 
-    public void AttackWithWeapon() {
-        currentWeapon?.ShootProjectile();
+    public override void ShootWeapon() {
+        if (reloading) {
+            Debug.Log("Currently reloading");
+            return;
+        }
+        currentWeapon.currentAmmo--;
+        updateAmmoInUIController();
+        GameObject projectileInstance = Instantiate(currentWeapon.projectilePrefab, currentWeapon.projectileSpawnPosition.position, firstPersonCamera.transform.rotation);
+        ProjectileController projectileController = projectileInstance.GetComponent<ProjectileController>();
+        projectileController.transform.forward = firstPersonCamera.transform.forward;
+        projectileController.rigidBody.AddForce(projectileController.transform.forward * currentWeapon.thrust);
     }
 
     public IEnumerator StartReload() {
-        return currentWeapon?.StartReload();
+        reloading = true;
+        yield return new WaitForSeconds(currentWeapon.reloadTime);
+        currentWeapon.currentAmmo = currentWeapon.maxAmmo;
+        reloading = false;
+        updateAmmoInUIController();
+    }
+    private void updateAmmoInUIController() {
+        UIMasterController.Instance.setAmmunitionAmount(currentWeapon.currentAmmo, currentWeapon.maxAmmo);
     }
 }
