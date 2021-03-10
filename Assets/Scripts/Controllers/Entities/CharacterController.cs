@@ -5,6 +5,8 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour, ITakesDamage {
     public float maxHealth;
     public float currentHealth;
+
+    public WeaponController currentWeapon;
     virtual public void Start() {
         currentHealth = maxHealth;
     }

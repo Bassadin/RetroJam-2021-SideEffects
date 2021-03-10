@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PistolProjectile : MonoBehaviour, IProjectile
-{
+public class ProjectileController : MonoBehaviour {
     public float damage = 5;
-    [SerializeField] private Rigidbody rigidBody;
-    public void DealDamage() {
+    public Rigidbody rigidBody;
+
+    void Start() {
+        
+    }
+
+    void Update() {
         
     }
 
@@ -18,13 +22,5 @@ public class PistolProjectile : MonoBehaviour, IProjectile
 
     public void Awake() {
         Destroy(gameObject, 10);
-    }
-
-    public void Shoot(float weaponThrust) {
-        rigidBody.AddForce(gameObject.transform.forward * weaponThrust);
-    }
-
-    void Update() {
-        
     }
 }

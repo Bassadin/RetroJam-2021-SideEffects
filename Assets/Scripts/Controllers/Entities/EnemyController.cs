@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : CharacterController, ILockOnAble {
+public class EnemyController : CharacterController, ILockOnAble, ICanAttack {
 
     private Vector3 screenPoint;
 
@@ -30,5 +30,13 @@ public class EnemyController : CharacterController, ILockOnAble {
 
     public GameObject GetGameObject() {
         return gameObject;
+    }
+
+    public void AttackWithWeapon() {
+        currentWeapon?.ShootProjectile();
+    }
+
+    public IEnumerator StartReload() {
+        return currentWeapon?.StartReload();
     }
 }

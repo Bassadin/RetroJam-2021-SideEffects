@@ -73,13 +73,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8578520764109605878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba82ead307b6a2947b77cc246154ac8b, type: 3}
+  m_Script: {fileID: 11500000, guid: fe1086053887521468bf7ab4d81e567a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmo: 12
-  thrust: 3500
+  thrust: 500
   reloadTime: 2
-  pistolProjectilePrefab: {fileID: 1056867457765174826, guid: 9b34ec7d67136f44c98f6e5d48ca7d46, type: 3}
+  reloading: 0
+  currentAmmo: 0
+  projectilePrefab: {fileID: 1056867457765174826, guid: 9b34ec7d67136f44c98f6e5d48ca7d46, type: 3}
   firstPersonCamera: {fileID: 0}
   projectileSpawnPosition: {fileID: 5567226642535315447}
 --- !u!23 &1366582486917634057

@@ -175,7 +175,6 @@ public class FirstPersonLook : MonoBehaviour
 
             Vector3 YZPlaneProjection = Vector3.ProjectOnPlane(directionTowardsTargetFromCamera, transform.right);
             float xRotation = Vector3.SignedAngle(transform.forward, YZPlaneProjection, transform.right);
-            Debug.Log(xRotation);
             transform.Rotate(new Vector3(xRotation, 0, 0));
 
             lockedOnTargetObject.GetComponent<Renderer>().material.color = Color.red;
