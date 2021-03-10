@@ -7,8 +7,9 @@ public class PlayerController : CharacterController {
     [SerializeField] private Camera firstPersonCamera;
     private bool reloading = false;
 
-    void Start()
+    override public void Start()
     {
+        base.Start();
         updateAmmoInUIController();
     }
 
@@ -32,7 +33,7 @@ public class PlayerController : CharacterController {
         GameObject projectileInstance = Instantiate(currentWeapon.projectilePrefab, currentWeapon.projectileSpawnPosition.position, firstPersonCamera.transform.rotation);
         ProjectileController projectileController = projectileInstance.GetComponent<ProjectileController>();
         projectileController.transform.forward = firstPersonCamera.transform.forward;
-        projectileController.rigidBody.AddForce(projectileController.transform.forward * currentWeapon.thrust);
+        projectileController.rigidBody.AddForce(projectileController.transform.forward * currentWeapon.thrust, ForceMode.Impulse);
     }
 
     public IEnumerator StartReload() {

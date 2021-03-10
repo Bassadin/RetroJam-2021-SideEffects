@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyWalk : MonoBehaviour
-{
-    [SerializeField] private NavMeshAgent agent;
+public class EnemyWalk : MonoBehaviour {
     private Transform playerTransform;
+    [SerializeField] private NavMeshAgent agent;
     [SerializeField] private LayerMask whatIsGround, whatIsPlayer;
+    [SerializeField] private Animator enemyAnimator;
 
     public Vector3 walkPoint;
     private bool walkPointSet;
+    private float distanceFromPlayer;
     public float walkPointRange;
 
     public float sightRange;
@@ -23,17 +24,23 @@ public class EnemyWalk : MonoBehaviour
 
     void Update()
     {
+        enemyAnimator.SetBool("Idle", true);
+        enemyAnimator.SetBool("Walking", false);
+        enemyAnimator.SetBool("Chasing", false);
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-
 
         if (!playerInSightRange)
         {
             Patrolling();
         }
-        if (playerInSightRange)
+        if (playerInSightRange && distanceFromPlayer > 5)
         {
             ChasePlayer();
         }
+    }
+
+    private void FixedUpdate() {
+        distanceFromPlayer = Vector3.Distance(transform.position, playerTransform.position);
     }
 
     private void Patrolling()
@@ -44,6 +51,8 @@ public class EnemyWalk : MonoBehaviour
         }
         else
         {
+            enemyAnimator.SetBool("Idle", false);
+            enemyAnimator.SetBool("Walking", true);
             agent.SetDestination(walkPoint);
         }
 
@@ -70,6 +79,10 @@ public class EnemyWalk : MonoBehaviour
 
     private void ChasePlayer()
     {
+        Debug.Log("Chasing Player");
+        enemyAnimator.SetBool("Idle", false);
+        enemyAnimator.SetBool("Chasing", true);
+        enemyAnimator.SetBool("Walking", true);
         agent.SetDestination(playerTransform.position);
     }
 }

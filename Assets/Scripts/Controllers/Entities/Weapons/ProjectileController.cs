@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour {
     public float damage = 5;
     public Rigidbody rigidBody;
+    private LayerMask layerMask;
 
     void Start() {
         

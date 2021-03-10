@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7143416960713995042}
   - component: {fileID: 5009608739615339505}
   - component: {fileID: 3125115936483077489}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Alien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,6 +91,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
+  enemyAnimator: {fileID: 7143416960204596440}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 50
   sightRange: 50
@@ -111,8 +112,10 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
-  timeBetweenAttacks: 0
-  attackRange: 0
+  enemyController: {fileID: 3125115936483077489}
+  enemyAnimator: {fileID: 7143416960204596440}
+  timeBetweenAttacks: 1
+  attackRange: 35
 --- !u!114 &3125115936483077489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 20
-  currentWeapon: {fileID: 0}
+  currentWeapon: {fileID: 8444161626729809363}
 --- !u!95 &7143416960204596440
 Animator:
   serializedVersion: 3
@@ -216,6 +219,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfaccb852e93c7940b9352bef0f7f8a0, type: 3}
+--- !u!114 &8444161626729809363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9199065172871774427, guid: dfaccb852e93c7940b9352bef0f7f8a0, type: 3}
+  m_PrefabInstance: {fileID: 758317001768142088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1086053887521468bf7ab4d81e567a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7143416959406182878
 PrefabInstance:
   m_ObjectHideFlags: 0

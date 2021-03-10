@@ -5,9 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyAttack : MonoBehaviour {
     [SerializeField] private NavMeshAgent agent;
-    private Transform playerTransform;
     [SerializeField] private LayerMask whatIsPlayer;
+    [SerializeField] private EnemyController enemyController;
+    [SerializeField] private Animator enemyAnimator;
 
+    private Transform playerTransform;
     public float timeBetweenAttacks;
     private bool alreadyAttacked;
 
@@ -29,10 +31,13 @@ public class EnemyAttack : MonoBehaviour {
         //make sure enemy doesnt move
         agent.SetDestination(transform.position);
 
-        transform.LookAt(playerTransform);
+        Vector3 playerPositionTranslatedToSameLevel = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+
+        transform.LookAt(playerPositionTranslatedToSameLevel);
 
         if (!alreadyAttacked) {
-            
+            enemyAnimator.SetTrigger("Shoot");
+            enemyController.ShootWeapon();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

@@ -6,6 +6,7 @@ public class EnemyController : CharacterController, ILockOnAble {
 
     private Vector3 screenPoint;
 
+
     override public void Start() {
         base.Start();
         SceneController.AddLockonableTarget(this);
@@ -32,7 +33,10 @@ public class EnemyController : CharacterController, ILockOnAble {
     }
 
     public override void ShootWeapon() {
-        
+        Debug.Log("SHOOT");
+        GameObject projectileInstance = Instantiate(currentWeapon.projectilePrefab, currentWeapon.projectileSpawnPosition.position, transform.rotation);
+        ProjectileController projectileController = projectileInstance.GetComponent<ProjectileController>();
+        projectileController.transform.forward = transform.forward;
+        projectileController.rigidBody.AddForce(projectileController.transform.forward * currentWeapon.thrust, ForceMode.Impulse);
     }
-
 }
