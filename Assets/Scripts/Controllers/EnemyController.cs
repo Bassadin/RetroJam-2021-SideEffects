@@ -24,7 +24,7 @@ public class EnemyController : CharacterController, ILockOnAble {
         screenPoint = _screenPoint;
     }
 
-    public Vector3 GetScreenPoint() {
+    public Vector2 GetScreenPoint() {
         return screenPoint;
     }
 

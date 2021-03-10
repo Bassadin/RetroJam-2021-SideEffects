@@ -124,12 +124,25 @@ public class FirstPersonLook : MonoBehaviour
                 lockonableTarget.SetScreenPoint(screenPoint);
             }
         }
-        tempTargetsRight.Sort(RightSort);
-        tempTargetsLeft.Sort(LeftSort);
+        tempTargetsRight.Sort(SortByCenterDistance);
+        tempTargetsLeft.Sort(SortByCenterDistance);
         lockonAbleTargetsInFOVLeft = tempTargetsLeft;
         lockonAbleTargetsInFOVRight = tempTargetsRight;
     }
-
+    private int SortByCenterDistance(ILockOnAble c1, ILockOnAble c2) {
+        float GetDistanceFromCenter(Vector2 point) {
+            return Mathf.Sqrt(Mathf.Pow(point.x - 0.5f, 2f) + Mathf.Pow(point.y - 0.5f, 2f));
+        }
+        float distanceC1 = GetDistanceFromCenter(c1.GetScreenPoint());
+        float distanceC2 = GetDistanceFromCenter(c2.GetScreenPoint());
+        if (distanceC1 < distanceC2) {
+            return -1;
+        }
+        else if (distanceC2 < distanceC1) {
+            return 1;
+        }
+        return 0;
+    }
     private int LeftSort(ILockOnAble c1, ILockOnAble c2) {
         if (c1.GetScreenPoint().x < c2.GetScreenPoint().x) {
             return 1;

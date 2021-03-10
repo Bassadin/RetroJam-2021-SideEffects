@@ -7,7 +7,7 @@ public interface ILockOnAble
     Vector3 GetMiddle();
 
     void SetScreenPoint(Vector3 _screenPoint);
-    Vector3 GetScreenPoint();
+    Vector2 GetScreenPoint();
 
     GameObject GetGameObject();
 }
