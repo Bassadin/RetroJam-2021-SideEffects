@@ -19,21 +19,18 @@ public class Dash : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftAlt) && playeritems.hasDash)
         {
-            var input = Input.inputString;
-            switch(input)
+            if(Input.GetKeyDown(KeyCode.A))
             {
-                case "a":
-                    StartCoroutine(DashCoroutine("left"));
-                    break;
-                case "s":
-                    StartCoroutine(DashCoroutine("back"));
-                    break;
-                case "d":
-                    StartCoroutine(DashCoroutine("right"));
-                    break;
-                default:
-                    StartCoroutine(DashCoroutine("forward"));
-                    break;
+                StartCoroutine(DashCoroutine("left"));
+            }else if(Input.GetKeyDown(KeyCode.S))
+            {
+                StartCoroutine(DashCoroutine("back"));
+            }else if (Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine(DashCoroutine("right"));
+            }else
+            {
+                StartCoroutine(DashCoroutine("forward"));
             }
         }
     }
