@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAttack : MonoBehaviour
-{
+public class EnemyAttack : MonoBehaviour {
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private LayerMask whatIsPlayer;

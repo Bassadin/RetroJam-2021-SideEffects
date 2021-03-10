@@ -439,6 +439,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1092655997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7783858057294080571, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+  m_PrefabInstance: {fileID: 7783858058150749992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1086053887521468bf7ab4d81e567a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1685768734
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  currentWeapon: {fileID: 0}
 --- !u!114 &1685768736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
+  currentWeapon: {fileID: 0}
 --- !u!114 &1734722942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,6 +807,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864965022, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+      propertyPath: currentWeapon
+      value: 
+      objectReference: {fileID: 1092655997}
     - target: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_Name
       value: First Person Player
