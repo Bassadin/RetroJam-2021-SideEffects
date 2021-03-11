@@ -311,8 +311,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
   playeritems: {fileID: 6647019980449825999}
-  _dashTime: 1
-  _dashSpeed: 10
+  _dashTime: 0.5
+  _dashSpeed: 20
+  cooldown: 5
 --- !u!1001 &1252607592545334012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -320,6 +321,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 610713238954659214, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
+      propertyPath: thisObject
+      value: 
+      objectReference: {fileID: 1252607592545334013}
     - target: {fileID: 610713238954659214, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
       propertyPath: playeritems
       value: 
@@ -374,6 +379,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
+--- !u!1 &1252607592545334013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 610713239550727625, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
+  m_PrefabInstance: {fileID: 1252607592545334012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6647019980449825999 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3121120674471254656, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
