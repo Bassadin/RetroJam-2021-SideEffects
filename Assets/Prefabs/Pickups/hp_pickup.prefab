@@ -46,8 +46,8 @@ MonoBehaviour:
   thisObject: {fileID: 2978293107567254268}
   objectType: hp
   playeritems: {fileID: 0}
---- !u!64 &7672967003528094002
-MeshCollider:
+--- !u!65 &7272754347088780477
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -56,10 +56,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: cd5061ac674b641429e1b107e75bf644, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.019999996, z: 0.019999996}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &9204307371772710735
 PrefabInstance:
   m_ObjectHideFlags: 0

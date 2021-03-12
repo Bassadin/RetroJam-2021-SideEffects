@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 610713238954659203}
   - component: {fileID: 610713238954659213}
   - component: {fileID: 610713238954659212}
-  - component: {fileID: 610713238954659215}
   - component: {fileID: 610713238954659214}
+  - component: {fileID: 1956567617815876904}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &610713238954659215
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610713238954659202}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: cd5061ac674b641429e1b107e75bf644, type: 3}
 --- !u!114 &610713238954659214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,9 +95,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1546dcdc23d0a8e48a31e5ef3cfb1ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObject: {fileID: 0}
+  thisObject: {fileID: 610713239550727625}
   objectType: resource
   playeritems: {fileID: 0}
+--- !u!65 &1956567617815876904
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610713238954659202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019999998, y: 0.019999994, z: 0.019999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &610713239550727625
 GameObject:
   m_ObjectHideFlags: 0

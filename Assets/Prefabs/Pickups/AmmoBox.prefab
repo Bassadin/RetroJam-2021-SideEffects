@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!64 &2974719004126301589
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5820998096600300992}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -311974018672074431, guid: ca2bec857f01d624b815a1b70544b646, type: 3}
 --- !u!114 &8279651294666439998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,6 +15,19 @@ MonoBehaviour:
   thisObject: {fileID: 6529815972581757880}
   objectType: ammo
   playeritems: {fileID: 0}
+--- !u!65 &1174794675593856674
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820998096600300992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016391812, y: 0.021636266, z: 0.021926295}
+  m_Center: {x: 0, y: 0.00006308498, z: 0.0009631494}
 --- !u!1 &6529815972581757880
 GameObject:
   m_ObjectHideFlags: 0
