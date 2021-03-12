@@ -7,39 +7,59 @@ public class PickupSystem : MonoBehaviour
     public GameObject thisObject;
     public string objectType;
     public ItemSystem playeritems;
+    private GameObject player;
+    private PlayerController playercon;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = playeritems.transform.parent.gameObject;
+        playercon = player.GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        switch(objectType)
+        if(player.tag == "Player")
         {
-            case "resource":
-                playeritems.resources++;
-                break;
-            case "doublejump":
-                if(playeritems.resources > 1)
-                {
-                    playeritems.resources--;
-                    playeritems.hasDoubleJump = true;
-                }
-                break;
-            case "dash":
-                if (playeritems.resources > 1)
-                {
-                    playeritems.resources--;
-                    playeritems.hasDash = true;
-                }
-                break;
-            default:
+            switch (objectType)
+            {
+                case "resource":
+                    playeritems.resources++;
+                    break;
+                case "DJ":
+                    if (playeritems.resources > 1)
+                    {
+                        playeritems.resources--;
+                        playeritems.hasDoubleJump = true;
+                    }
+                    else
+                    {
 
-                break;
+                    }
+                    break;
+                case "dash":
+                    if (playeritems.resources > 1)
+                    {
+                        playeritems.resources--;
+                        playeritems.hasDash = true;
+                    }
+                    else
+                    {
+
+                    }
+                    break;
+                case "ammo":
+                    playercon.fillAmmo();
+                    break;
+                case "hp":
+                    playercon.refillHP();
+                    break;
+                default:
+
+                    break;
+            }
+
+            Destroy(thisObject);
         }
-        
-        Destroy(thisObject);
     }
     // Update is called once per frame
     //void Update()
