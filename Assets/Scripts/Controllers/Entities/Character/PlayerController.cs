@@ -13,11 +13,6 @@ public class PlayerController : CharacterController
         base.Start();
         updateAmmoInUIController();
     }
-
-    private void Awake() {
-        Application.targetFrameRate = 20; //Lock FPS to 20
-    }
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
