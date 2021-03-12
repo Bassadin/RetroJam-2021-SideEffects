@@ -1705,10 +1705,6 @@ PrefabInstance:
       value: Pistol
       objectReference: {fileID: 0}
     - target: {fileID: 9199065172871774427, guid: dfaccb852e93c7940b9352bef0f7f8a0, type: 3}
-      propertyPath: thrust
-      value: 3500
-      objectReference: {fileID: 0}
-    - target: {fileID: 9199065172871774427, guid: dfaccb852e93c7940b9352bef0f7f8a0, type: 3}
       propertyPath: firstPersonCamera
       value: 
       objectReference: {fileID: 8585580552249954386}
