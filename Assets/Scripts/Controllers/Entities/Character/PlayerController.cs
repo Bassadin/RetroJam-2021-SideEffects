@@ -46,6 +46,16 @@ public class PlayerController : CharacterController
 
     }
 
+    public void fillAmmo()
+    {
+        currentWeapon.refillAmmo();
+    }
+
+    public void refillHP()
+    {
+        currentHealth = maxHealth;
+    }
+
     public IEnumerator StartReload()
     {
         reloading = true;
