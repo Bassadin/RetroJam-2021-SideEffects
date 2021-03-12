@@ -33,7 +33,7 @@ public class PickupSystem : MonoBehaviour
                     }
                     else
                     {
-
+                        return;
                     }
                     break;
                 case "dash":
@@ -44,7 +44,7 @@ public class PickupSystem : MonoBehaviour
                     }
                     else
                     {
-
+                        return;
                     }
                     break;
                 case "ammo":
