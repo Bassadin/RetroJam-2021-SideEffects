@@ -20,4 +20,9 @@ public class WeaponController : MonoBehaviour
     void Update() {
         
     }
+
+    public void refillAmmo()
+    {
+        currentAmmo = maxAmmo;
+    }
 }
