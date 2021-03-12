@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObject: {fileID: 0}
-  objectType: 
+  objectType: resource
   playeritems: {fileID: 0}
 --- !u!1 &610713239550727625
 GameObject:
