@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5421253221976424454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316261296575498139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1086053887521468bf7ab4d81e567a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmo: 0
+  thrust: 30
+  reloadTime: 3
+  currentAmmo: 0
+  projectilePrefab: {fileID: 1056867457765174826, guid: 9b34ec7d67136f44c98f6e5d48ca7d46, type: 3}
+  projectileSpawnPosition: {fileID: 2782028274625278852}
 --- !u!95 &5881700475583030635
 Animator:
   serializedVersion: 3
@@ -78,11 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53353321c1f61e84daab87b1a1109332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 4
   currentHealth: 0
-  currentWeapon: {fileID: 0}
+  currentWeapon: {fileID: 5421253221976424454}
   turretAnimator: {fileID: 5881700475583030635}
   towerRotationPartTransform: {fileID: 4465532430389229477}
+  shootingDelayTime: 3
 --- !u!136 &7907641103636071328
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -188,6 +207,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: -647321449431966045, guid: d60a06a617a3d2c4b93fbf988ff65a4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -647321449431966045, guid: d60a06a617a3d2c4b93fbf988ff65a4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -647321449431966045, guid: d60a06a617a3d2c4b93fbf988ff65a4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -647321449431966045, guid: d60a06a617a3d2c4b93fbf988ff65a4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -647321449431966045, guid: d60a06a617a3d2c4b93fbf988ff65a4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: -255149870888612759, guid: d60a06a617a3d2c4b93fbf988ff65a4a, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -243,5 +282,15 @@ Transform:
 --- !u!4 &4465532430389229477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1412092348503287166, guid: d60a06a617a3d2c4b93fbf988ff65a4a, type: 3}
+  m_PrefabInstance: {fileID: 5881700476067261735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5316261296575498139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7468982418281174340, guid: d60a06a617a3d2c4b93fbf988ff65a4a, type: 3}
+  m_PrefabInstance: {fileID: 5881700476067261735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2782028274625278852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -647321449431966045, guid: d60a06a617a3d2c4b93fbf988ff65a4a, type: 3}
   m_PrefabInstance: {fileID: 5881700476067261735}
   m_PrefabAsset: {fileID: 0}

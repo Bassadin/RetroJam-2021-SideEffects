@@ -10,6 +10,10 @@ public class TurretController : EnemyController
 
     public Transform towerRotationPartTransform;
     private bool battleMode = false;
+    private float shootingTimer = 0;
+
+    public float shootingDelayTime = 3f;
+    private float shootingDelayTimer = 0f;
 
     private void Update()
     {
@@ -19,6 +23,20 @@ public class TurretController : EnemyController
             lookPos.y = 0;
             Quaternion lookAtRotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookAtRotation, Time.deltaTime * 5);
+
+            shootingDelayTimer += Time.deltaTime;
+            shootingTimer += Time.deltaTime;
+
+            if (shootingTimer >= currentWeapon.reloadTime && shootingDelayTimer >= shootingDelayTime)
+            {
+                ShootWeapon();
+                shootingTimer = 0;
+            }
+        }
+        else
+        {
+            shootingTimer = 0;
+            shootingDelayTimer = 0;
         }
     }
 
@@ -44,5 +62,10 @@ public class TurretController : EnemyController
     {
         turretAnimator.SetBool("BattleMode", battleModeBoolean);
         battleMode = battleModeBoolean;
+
+        if (battleMode)
+        {
+            shootingTimer = currentWeapon.reloadTime;
+        }
     }
 }
