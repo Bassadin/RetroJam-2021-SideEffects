@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObject: {fileID: 8282955235080498690}
-  objectType: ammo
+  objectType: dash
   playeritems: {fileID: 0}
 --- !u!1001 &8671954101869146040
 PrefabInstance:

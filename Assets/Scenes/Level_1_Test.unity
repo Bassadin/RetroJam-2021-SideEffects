@@ -426,6 +426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &117156747 stripped
@@ -440,6 +444,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2122374150071073088, guid: 7d28393526a087745b31881b16c8fd82, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     - target: {fileID: 3355160303464649574, guid: 7d28393526a087745b31881b16c8fd82, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -731,6 +739,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8648205044412287298, guid: 304938ce89d26814b9c21cd0f52162ac, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 304938ce89d26814b9c21cd0f52162ac, type: 3}
 --- !u!4 &278084992 stripped
@@ -793,6 +805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &300136215 stripped
@@ -1317,6 +1333,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2128881031}
     m_Modifications:
+    - target: {fileID: 610713238954659214, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     - target: {fileID: 610713239550727625, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
       propertyPath: m_Name
       value: Ressources
@@ -1427,6 +1447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &675145648 stripped
@@ -1596,6 +1620,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8648205044412287298, guid: 304938ce89d26814b9c21cd0f52162ac, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 304938ce89d26814b9c21cd0f52162ac, type: 3}
 --- !u!4 &756956962 stripped
@@ -1720,6 +1748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &806103334 stripped
@@ -1844,6 +1876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &847321224 stripped
@@ -1968,6 +2004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &893047234 stripped
@@ -2473,6 +2513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &1053036909 stripped
@@ -2535,6 +2579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &1102574093 stripped
@@ -2597,6 +2645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &1241408306 stripped
@@ -2673,6 +2725,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2128881031}
     m_Modifications:
+    - target: {fileID: 610713238954659214, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     - target: {fileID: 610713239550727625, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
       propertyPath: m_Name
       value: Ressources (1)
@@ -2783,6 +2839,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8648205044412287298, guid: 304938ce89d26814b9c21cd0f52162ac, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 304938ce89d26814b9c21cd0f52162ac, type: 3}
 --- !u!4 &1400983863 stripped
@@ -2797,6 +2857,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2128881031}
     m_Modifications:
+    - target: {fileID: 610713238954659214, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     - target: {fileID: 610713239550727625, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
       propertyPath: m_Name
       value: Ressources (2)
@@ -2907,6 +2971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &1490041007 stripped
@@ -2969,6 +3037,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8648205044412287298, guid: 304938ce89d26814b9c21cd0f52162ac, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 304938ce89d26814b9c21cd0f52162ac, type: 3}
 --- !u!4 &1519849346 stripped
@@ -3027,6 +3099,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8136808012983311609, guid: ac318c3115d14c14c9871075d4090848, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     - target: {fileID: 8282955235080498690, guid: ac318c3115d14c14c9871075d4090848, type: 3}
       propertyPath: m_Name
       value: Dash
@@ -3088,6 +3164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &1738398828 stripped
@@ -3150,6 +3230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &1748395493 stripped
@@ -3383,6 +3467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &1953078683 stripped
@@ -3541,6 +3629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &2062835599 stripped
@@ -3555,6 +3647,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2128881031}
     m_Modifications:
+    - target: {fileID: 610713238954659214, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     - target: {fileID: 610713239550727625, guid: 7a9b8d4e3b1c48243986050a6d08d7e7, type: 3}
       propertyPath: m_Name
       value: Ressources (3)
@@ -3665,6 +3761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8279651294666439998, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
+      propertyPath: playeritems
+      value: 
+      objectReference: {fileID: 6647019980449825999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a422e86f965694ebbc2a40fb40affd, type: 3}
 --- !u!4 &2099736857 stripped
@@ -3749,7 +3849,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3121120674471254656, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
       propertyPath: hasDash
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8602004210850266848, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
       propertyPath: m_RootOrder
@@ -3800,6 +3900,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8602284437413386496, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.487999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602284437413386496, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
@@ -3817,7 +3921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8604350126454302024, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
       propertyPath: m_Name
-      value: First Person Player with Upgrades
+      value: First Person Player
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ffdc2c3426c2288469b669981e01781a, type: 3}
       propertyPath: m_Layer

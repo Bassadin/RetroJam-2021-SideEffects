@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1546dcdc23d0a8e48a31e5ef3cfb1ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObject: {fileID: 0}
+  thisObject: {fileID: 610713239550727625}
   objectType: resource
   playeritems: {fileID: 0}
 --- !u!1 &610713239550727625
