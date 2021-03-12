@@ -13,9 +13,8 @@ public abstract class CharacterController : MonoBehaviour, ITakesDamage {
     }
 
     public void TakeDamage(float damage) {
-        Debug.Log(currentHealth);
         currentHealth -= damage;
-        Debug.Log(currentHealth);
+        Debug.Log(gameObject + " - New current health: " + currentHealth);
         CheckDeath();
     }
 
