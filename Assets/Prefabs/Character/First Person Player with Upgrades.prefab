@@ -807,10 +807,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 8602004210850266848}
-  sensitivity: 200
-  smoothing: 2
   fpsCamera: {fileID: 8585580552249954386}
   firstPersonMovement: {fileID: 8572295427925099732}
+  sensitivity: 200
+  smoothing: 2
 --- !u!114 &8605965213038854010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,7 +1005,7 @@ GameObject:
   - component: {fileID: 8605965212143439708}
   - component: {fileID: 8605965213633926367}
   m_Layer: 7
-  m_Name: First Person Player with Upgrades 1
+  m_Name: First Person Player with Upgrades
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,6 +1128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
+  currentWeapon: {fileID: 1975767876461117177}
+  firstPersonCamera: {fileID: 8585580552249954386}
 --- !u!114 &8605965213633926367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,6 +1714,17 @@ PrefabInstance:
       objectReference: {fileID: 8585580552249954386}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfaccb852e93c7940b9352bef0f7f8a0, type: 3}
+--- !u!114 &1975767876461117177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9199065172871774427, guid: dfaccb852e93c7940b9352bef0f7f8a0, type: 3}
+  m_PrefabInstance: {fileID: 7260633157238996514}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1086053887521468bf7ab4d81e567a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4815867473143549333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2744828046676816823, guid: dfaccb852e93c7940b9352bef0f7f8a0, type: 3}
