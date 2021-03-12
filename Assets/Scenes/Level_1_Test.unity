@@ -3847,8 +3847,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 475952159190442211, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 475952159190442211, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 475952159190442211, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 475952159190442211, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 475952159190442211, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 480
+      objectReference: {fileID: 0}
+    - target: {fileID: 475952159190442211, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475952159190442211, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995681286929538022, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598500311051207397, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598500311051207397, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3121120674471254656, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
       propertyPath: hasDash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070235898239555729, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8602004210850266848, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
@@ -3922,6 +3966,14 @@ PrefabInstance:
     - target: {fileID: 8604350126454302024, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
       propertyPath: m_Name
       value: First Person Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605965212143439708, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605965212143439708, guid: 23d402126aa0c6b4087506d211d37979, type: 3}
+      propertyPath: currentHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ffdc2c3426c2288469b669981e01781a, type: 3}
       propertyPath: m_Layer
